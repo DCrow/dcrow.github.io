@@ -6,9 +6,34 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-messaging.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDK_v_B2S3-gSApviBGKLzQrjw8lAICETk",
+            authDomain: "job-processor.firebaseapp.com",
+            databaseURL: "https://job-processor.firebaseio.com",
+            projectId: "job-processor",
+            storageBucket: "job-processor.appspot.com",
+            messagingSenderId: "1002779833411"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="main.js"></script>
 </head>
 <body>
-TEST
+    <div class="container">
+        <form class="sign-in">
+            <h2>Firebase test</h2>
+            <label for="inputMessage">Message</label>
+            <input type="text" id="inputMessage">
+            <button type="button" onclick="sendMessage()">Push to Firebase</button>
+        </form>
+    </div>
 </body>
 </html>
