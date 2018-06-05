@@ -32,6 +32,12 @@ function initFirebase() {
     firebase.initializeApp(config);
     const messaging = firebase.messaging();
     messaging.usePublicVapidKey("BP2waH4sWHqMWgIFmEXpZhYG6TXhJ3x_iZ-NzCI_JUJ0tl08BGDSadYnc8si0jKeLCfgXZUKqWsLNj2yE5yhZNE");
+
+    messaging.onMessage(function(payload) {
+        console.log('Message received. ', payload);
+        // ...
+    });
+
     messaging.requestPermission().then(function() {
         console.log('Notification permission granted.');
         messaging.getToken().then(function(currentToken) {
