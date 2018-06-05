@@ -30,6 +30,24 @@ function initFirebase() {
         messagingSenderId: "1002779833411"
     };
     firebase.initializeApp(config);
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey("BP2waH4sWHqMWgIFmEXpZhYG6TXhJ3x_iZ-NzCI_JUJ0tl08BGDSadYnc8si0jKeLCfgXZUKqWsLNj2yE5yhZNE");
+    messaging.requestPermission().then(function() {
+        console.log('Notification permission granted.');
+        messaging.getToken().then(function(currentToken) {
+            if (currentToken) {
+              console.log(currentToken);
+            } else {
+              // Show permission request.
+              console.log('No Instance ID token available. Request permission to generate one.');
+            }
+          }).catch(function(err) {
+            console.log('An error occurred while retrieving token. ', err);
+          });
+      }).catch(function(err) {
+        console.log('Unable to get permission to notify.', err);
+      });
+
     firebase.database().ref('/position').on('value', snapshot => {
         app.mapApp.markers.forEach(element => {
             element.setMap(null);
