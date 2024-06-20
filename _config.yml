@@ -1,1 +1,22 @@
-theme: jekyll-theme-cayman
+title: DCrow's Blog
+description: >-
+  My personal blog for sharing thoughts on various topics.
+baseurl: ""
+url: "https://dcrow.github.io/"
+author:
+  name: Yaroslav Barkovskiy
+  email: kuroimist@gmail.com
+
+minima:
+  social_links:
+    - { platform: github,  user_url: "https://github.com/DCrow" }
+    - { platform: twitter, user_url: "https://twitter.com/d_dCr0w" }
+
+# Build settings
+theme: minima
+
+exclude:
+  - _site/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
